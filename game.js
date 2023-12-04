@@ -20,10 +20,10 @@ var brickOffsetLeft = 30;
 var score = 0;
 var lives = 3;
 
-        var bricks = [];
-        for(var c=0; c<brickColumnCount; c++) {
+var bricks = [];
+for(var c=0; c<brickColumnCount; c++) {
         bricks[c] = [];
-        for(var r=0; r<brickRowCount; r++) {
+for(var r=0; r<brickRowCount; r++) {
             bricks[c][r] = { x: 0, y: 0, status: 1 };
         }
         }
@@ -32,40 +32,40 @@ var lives = 3;
         document.addEventListener("keyup", keyUpHandler, false);
         document.addEventListener("mousemove", mouseMoveHandler, false);
 
-        function keyDownHandler(e) {
-            if(e.key == "Right" || e.key == "ArrowRight") {
+function keyDownHandler(e) {
+        if(e.key == "Right" || e.key == "ArrowRight") {
                 rightPressed = true;
             }
-            else if(e.key == "Left" || e.key == "ArrowLeft") {
+        else if(e.key == "Left" || e.key == "ArrowLeft") {
                 leftPressed = true;
             }
         }
 
-        function keyUpHandler(e) {
-            if(e.key == "Right" || e.key == "ArrowRight") {
+function keyUpHandler(e) {
+        if(e.key == "Right" || e.key == "ArrowRight") {
                 rightPressed = false;
             }
-            else if(e.key == "Left" || e.key == "ArrowLeft") {
+        else if(e.key == "Left" || e.key == "ArrowLeft") {
                 leftPressed = false;
             }
         }
 
-        function mouseMoveHandler(e) {
-        var relativeX = e.clientX - canvas.offsetLeft;
-        if(relativeX > 0 && relativeX < canvas.width) {
+function mouseMoveHandler(e) {
+var relativeX = e.clientX - canvas.offsetLeft;
+if(relativeX > 0 && relativeX < canvas.width) {
             paddleX = relativeX - paddleWidth/2;
         }
-        }
-        function collisionDetection() {
-        for(var c=0; c<brickColumnCount; c++) {
-            for(var r=0; r<brickRowCount; r++) {
-            var b = bricks[c][r];
-            if(b.status == 1) {
-                if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+}
+function collisionDetection() {
+for(var c=0; c<brickColumnCount; c++) {
+        for(var r=0; r<brickRowCount; r++) {
+        var b = bricks[c][r];
+        if(b.status == 1) {
+        if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
                 dy = -dy;
                 b.status = 0;
                 score++;
-                if(score == brickRowCount*brickColumnCount) {
+        if(score == brickRowCount*brickColumnCount) {
                     alert("YOU WIN, CONGRATS!");
                     document.location.reload();
                 }
@@ -73,23 +73,23 @@ var lives = 3;
             }
             }
         }
-        }
+}
 
-        function drawBall() {
+function drawBall() {
         ctx.beginPath();
         ctx.arc(x, y, ballRadius, 0, Math.PI * 5);
         ctx.fillStyle = "#00ff00";
         ctx.fill();
         ctx.closePath();
-        }
-        function drawPaddle() {
+}
+function drawPaddle() {
         ctx.beginPath();
         ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
         ctx.fillStyle = "#FFFFFF";
         ctx.fill();
         ctx.closePath();
-        }
-        function drawBricks() {
+}
+function drawBricks() {
         for(var c=0; c<brickColumnCount; c++) {
             for(var r=0; r<brickRowCount; r++) {
             if(bricks[c][r].status == 1) {
@@ -105,19 +105,22 @@ var lives = 3;
             }
             }
         }
-        }
-        function drawScore() {
+}
+        
+function drawScore() {
         ctx.font = "20px Arial";
         ctx.fillStyle = "#00ff00";
         ctx.fillText("Score: "+score, 8, 20);
-        }
-        function drawLives() {
+}
+        
+function drawLives() {
         ctx.font = "17px Arial";
         ctx.fillStyle = "#FF0000";
         ctx.fillText("Lives: "+lives, canvas.width-65, 20);
         }
 
-        function draw() {
+        
+function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawBricks();
         drawBall();
@@ -162,7 +165,7 @@ var lives = 3;
         x += dx;
         y += dy;
         requestAnimationFrame(draw);
-        }
+}
 
         
 draw();
