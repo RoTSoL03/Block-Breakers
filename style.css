@@ -3,12 +3,12 @@
             margin: 0;
         }
 
-        body {
+body {
             background-color: darkblue;
         }
 
 
-        canvas {
+canvas {
             background: #000000;
             border: #fbff00 solid 1px;
             display: block;
