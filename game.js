@@ -1,24 +1,24 @@
 var canvas = document.getElementById("myCanvas");
-        var ctx = canvas.getContext("2d");
-        var ballRadius = 10;
-        var x = canvas.width/2;
-        var y = canvas.height-30;
-        var dx = 5;
-        var dy = -5;
-        var paddleHeight = 15;
-        var paddleWidth = 100;
-        var paddleX = (canvas.width-paddleWidth)/2;
-        var rightPressed = false;
-        var leftPressed = false;
-        var brickRowCount = 15;
-        var brickColumnCount = 12;
-        var brickWidth = 75;
-        var brickHeight = 20;
-        var brickPadding = 10;
-        var brickOffsetTop = 30;
-        var brickOffsetLeft = 30;
-        var score = 0;
-        var lives = 3;
+var ctx = canvas.getContext("2d");
+var ballRadius = 10;
+var x = canvas.width/2;
+var y = canvas.height-30;
+var dx = 5;
+var dy = -5;
+var paddleHeight = 15;
+var paddleWidth = 100;
+var paddleX = (canvas.width-paddleWidth)/2;
+var rightPressed = false;
+var leftPressed = false;
+var brickRowCount = 15;
+var brickColumnCount = 12;
+var brickWidth = 75;
+var brickHeight = 20;
+var brickPadding = 10;
+var brickOffsetTop = 30;
+var brickOffsetLeft = 30;
+var score = 0;
+var lives = 3;
 
         var bricks = [];
         for(var c=0; c<brickColumnCount; c++) {
@@ -164,4 +164,5 @@ var canvas = document.getElementById("myCanvas");
         requestAnimationFrame(draw);
         }
 
-        draw();
+        
+draw();
